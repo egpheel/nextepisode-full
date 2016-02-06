@@ -125,8 +125,13 @@ function login() {
       $hash = $row['password'];
       if (password_verify($pass, $hash)) {
         //Success!
-        $_SESSION['username'] = $user;
-        header('Location: ./index.php');
+        if (!$remember) {
+          $_SESSION['username'] = $user;
+          header('Location: ./index.php');
+        } else {
+          setcookie("neAuth", $user, time() + (3600*24*7)); //7 days
+          header('Location: ./index.php');
+        }
       } else {
         $errorMsg = "Wrong password!";
         header('Location: ./error.php?err='.$errorMsg);

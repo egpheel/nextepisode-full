@@ -6,6 +6,9 @@ session_start();
 if(isset($_SESSION['username'])) {
   header("Location: index.php");
   exit;
+} else if (isset($_COOKIE['neAuth'])) {
+  header("Location: index.php");
+  exit;
 }
 
 $_SESSION['origin_page'] = $_SERVER['REQUEST_URI'];
