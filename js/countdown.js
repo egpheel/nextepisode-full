@@ -4,7 +4,7 @@ function countdown(duration, element) {
     var countdown = setInterval(function () {
         if (--duration) {
             $('.' + element).html(duration);
-            console.log(duration);
+            //console.log(duration);
         } else {
             clearInterval(countdown);
         }
