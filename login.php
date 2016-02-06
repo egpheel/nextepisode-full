@@ -1,3 +1,12 @@
+<?php
+include_once "libs/functions.php";
+
+session_start();
+
+$_SESSION['origin_page'] = $_SERVER['REQUEST_URI'];
+
+login();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,18 +61,18 @@
 <body id="appBody">
   <div class="container-fluid topPage">
     <div class="container real-vcenter">
-      <form class="form-signin">
+      <form class="form-signin" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+        <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required>
         <div class="checkbox">
           <label>
-            <input type="checkbox" value="remember-me"> Remember me
+            <input type="checkbox" name="inputRemember" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Sign in</button>
         <p>Don't have an account? <a href="register.php">Sign up</a>.</p>
       </form>
       <div class="clearfix"></div>

@@ -50,7 +50,7 @@ register();
 
   <!-- my JS -->
   <script type="text/javascript" src="js/appname.js"></script>
-  <script type="text/javascript" src="js/reginit.js"></script>
+  <script type="text/javascript" src="js/reg.js"></script>
   <script type="text/javascript" src="js/moment.js"></script>
   <script type="text/javascript" src="js/validation.js"></script>
 

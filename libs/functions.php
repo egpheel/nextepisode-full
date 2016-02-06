@@ -96,4 +96,37 @@ function register() {
     }
   }
 }
+
+function login() {
+  if (isset($_POST["login"])) {
+    $email = $_POST["inputEmail"];
+    $pass = $_POST["inputPassword"];
+    global $db;
+    $errorMsg = "";
+
+    $email = mysqli_real_escape_string($db, $email);
+
+    $sql = "SELECT email FROM users WHERE email='$email'";
+    $result = mysqli_query($db, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+    if (mysqli_num_rows($result) == 1) {
+      // email exists on the db
+      $sql = "SELECT password FROM users WHERE email ='$email'";
+      $result = mysqli_query($db, $sql);
+      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+
+      $hash = $row['password'];
+      if (password_verify($pass, $hash)) {
+        echo "Success!";
+      } else {
+        $errorMsg = "Wrong password!";
+        header('Location: ./error.php?err='.$errorMsg);
+      }
+    } else {
+      $errorMsg = "That email address doesn't exist in our database.";
+      header('Location: ./error.php?err='.$errorMsg);
+    }
+  }
+}
 ?>
