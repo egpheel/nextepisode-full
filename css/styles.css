@@ -1,0 +1,48 @@
+html,
+body {
+    height: 100%;
+}
+
+#appBody {
+    font-family: 'Cabin', sans-serif;
+}
+
+#footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.topPage {
+    background-color: #35324a;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+}
+
+.vcenter {
+    position: relative;
+    top: 25%;
+}
+
+.real-vcenter {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.showResults {
+    margin: 20px auto;
+    padding: 20px 20px 30px 20px;
+    background-color: rgba(150, 150, 150, 0.4);
+    color: rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+}
