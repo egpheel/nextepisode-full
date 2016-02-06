@@ -3,6 +3,11 @@ include_once "libs/functions.php";
 
 session_start();
 
+if(isset($_SESSION['username'])) {
+  header("Location: index.php");
+  exit;
+}
+
 $_SESSION['origin_page'] = $_SERVER['REQUEST_URI'];
 
 login();

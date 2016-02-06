@@ -101,8 +101,14 @@ function login() {
   if (isset($_POST["login"])) {
     $email = $_POST["inputEmail"];
     $pass = $_POST["inputPassword"];
+    $remember = $_POST["inputRemember"];
     global $db;
     $errorMsg = "";
+
+    $sql = "SELECT username FROM users WHERE email='$email'";
+    $result = mysqli_query($db, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $user = $row['username'];
 
     $email = mysqli_real_escape_string($db, $email);
 
@@ -118,7 +124,9 @@ function login() {
 
       $hash = $row['password'];
       if (password_verify($pass, $hash)) {
-        echo "Success!";
+        //Success!
+        $_SESSION['username'] = $user;
+        header('Location: ./index.php');
       } else {
         $errorMsg = "Wrong password!";
         header('Location: ./error.php?err='.$errorMsg);
