@@ -4,10 +4,10 @@ include_once "libs/functions.php";
 session_start();
 
 if(isset($_SESSION['username'])) {
-  header("Location: index.php");
+  header("Location: ./");
   exit;
 } else if (isset($_COOKIE['neAuth'])) {
-  header("Location: index.php");
+  header("Location: ./");
   exit;
 }
 

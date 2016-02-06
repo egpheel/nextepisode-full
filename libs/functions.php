@@ -127,10 +127,10 @@ function login() {
         //Success!
         if (!$remember) {
           $_SESSION['username'] = $user;
-          header('Location: ./index.php');
+          header('Location: ./');
         } else {
           setcookie("neAuth", $user, time() + (3600*24*7)); //7 days
-          header('Location: ./index.php');
+          header('Location: ./');
         }
       } else {
         $errorMsg = "Wrong password!";
