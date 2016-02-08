@@ -129,7 +129,7 @@ function login() {
           $_SESSION['username'] = $user;
           header('Location: ./');
         } else {
-          setcookie("neAuth", $user, time() + (3600*24*7)); //7 days
+          setcookie("neAuth", $user, time() + (3600*24*30)); //30 days
           header('Location: ./');
         }
       } else {

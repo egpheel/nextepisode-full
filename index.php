@@ -46,6 +46,7 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!--my JS-->
     <script type="text/javascript" src="js/appname.js"></script>
+    <script type="text/javascript" src="js/randominator.js"></script>
     <!--moment.js-->
     <script type="text/javascript" src="js/moment.js"></script>
     <!--my CSS-->
@@ -88,5 +89,6 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
         </div>
       </div>
     </div>
+    <script>randomHeader();</script>
   </body>
 </html>
