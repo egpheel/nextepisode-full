@@ -1,0 +1,78 @@
+@import url(https://fonts.googleapis.com/css?family=Cabin:400,700)
+
+$bg-color: #35324a
+$results-bg-color: rgba(150,150,150,0.4)
+$text-primary-color: rgba(255,255,255,0.8)
+$toggle-hover-color: rgba(255,255,255,0.2)
+$dropdown-hover-color:rgba(130,100,130,0.3)
+
+$primary-font: 'Cabin', sans-serif
+
+html,
+body
+  height: 100%
+
+body
+  font-family: $primary-font
+
+#footer
+  position: absolute
+  right: 0
+  bottom: 0
+  left: 0
+  padding: 1rem
+  text-align: center
+
+a
+  &:hover
+    text-decoration: none
+
+.topPage,
+.cover
+  background-color: $bg-color
+  height: 100%
+  color: $text-primary-color
+  text-align: center
+
+.vcenter
+  position: relative
+  top: 25%
+
+.real-vcenter
+  position: relative
+  top: 50%
+  -webkit-transform: translateY(-50%)
+  transform: translateY(-50%)
+
+.showResults
+  margin: 20px auto
+  padding: 20px 20px 30px 20px
+  background-color: $results-bg-color
+  color: $text-primary-color
+  border-radius: 3px
+
+.navbar-inverse
+  background: none
+  border: 0px
+
+  .navbar-brand
+    color: $text-primary-color
+
+  .navbar-nav
+    > li
+      > a
+        color: $text-primary-color
+
+  .navbar-toggle
+    border-color: $text-primary-color
+    &:hover
+      background-color: $toggle-hover-color
+
+.dropdown-menu
+  > li
+    > a
+      &:hover
+        background-color: $dropdown-hover-color
+
+.randomHead
+  margin: 30px
