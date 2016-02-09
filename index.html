@@ -1,34 +1,3 @@
-<?php
-include_once "libs/db_config.php";
-include_once "libs/db_connect.php";
-
-session_start();
-if (isset($_SESSION['username'])) { //check if the user is logged in
-  $loggedin = true;
-  $user = $_SESSION['username'];
-} else if (isset($_COOKIE[COOKIE_NAME])) { //check if the user is logged in
-  $loggedin = true;
-  $cookie = explode('|', $_COOKIE[COOKIE_NAME]);
-
-  $session_key = $cookie[0];
-  $token = $cookie[1];
-
-  $sql = "SELECT user_id FROM user_sessions WHERE session_key='$session_key'";
-  $result = mysqli_query($db, $sql);
-  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-  $user_id_sessions = $row['user_id'];
-
-  $sql = "SELECT username FROM users WHERE id='$user_id_sessions'";
-  $result = mysqli_query($db, $sql);
-  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-  $user = $row['username'];
-
-} else { //if the user is not logged in, ...
-  $loggedin = false;
-}
-
-$_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous page for error.php
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -63,7 +32,6 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!--my JS-->
     <script type="text/javascript" src="js/appname.js"></script>
-    <script type="text/javascript" src="js/randominator.js"></script>
     <!--moment.js-->
     <script type="text/javascript" src="js/moment.js"></script>
     <!--my CSS-->
@@ -80,8 +48,7 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
           <div id="nb-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#">TV Shows</a></li>
-              <?php if ($loggedin) { ?>
-              <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><?php echo $user ?> <span class="caret"></span></a>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle">user placeholder<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">TV Show Tracker</a></li>
                   <li><a href="#">My Favourites</a></li>
@@ -90,9 +57,6 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
                   <li><a href="logout.php">Sign out</a></li>
                 </ul>
               </li>
-              <?php } else { ?>
-              <li><a href="login.php">Sign in</a></li>
-              <?php } ?>
             </ul>
           </div>
         </div>
@@ -101,11 +65,14 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
         <div class="row">
           <div class="col-md-12">
             <h1 class="randomHead">Track your favourite tv shows on <strong><span class="appname">Next Episode</span></strong></h1>
-            <button class="btn btn-primary btn-lg">Get started</button>
+            <button class="btn btn-primary btn-lg">Learn more</button>
           </div>
         </div>
       </div>
     </div>
-    <script>randomHeader();</script>
+    <section class="learn-more">
+      <h1>Hello there</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, at aut quidem animi accusantium aliquam inventore repellat odio ratione quas tempore dolor quae facilis corporis odit deleniti asperiores porro eos.</p>
+    </section>
   </body>
 </html>

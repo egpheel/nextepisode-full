@@ -6,7 +6,7 @@ session_start();
 if(isset($_SESSION['username'])) {
   header("Location: ./");
   exit;
-} else if (isset($_COOKIE['neAuth'])) {
+} else if (isset($_COOKIE[COOKIE_NAME])) {
   header("Location: ./");
   exit;
 }

@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 header("refresh: 5; url=login.php");
 ?>
 
