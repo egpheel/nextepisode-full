@@ -15,6 +15,7 @@ function register() {
     $pass = $_POST["pass"];
     $confirmpass = $_POST["confirmpass"];
     $created = gmdate("Y-m-d H:i:s");
+    $img_url_default = 'img/avatar.svg';
     global $db;
 
     $userValidChars = "/^[a-z0-9_-]{3,16}$/"; //no special chars, username between 3 and 16 characters
@@ -67,6 +68,8 @@ function register() {
       $pass = mysqli_real_escape_string($db, $pass);
       $pass = password_hash($pass, PASSWORD_DEFAULT); //hash password
 
+      $img_url_default = mysqli_real_escape_string($db, $img_url_default);
+
       $sql = "SELECT email FROM users WHERE email='$email'";
       $result = mysqli_query($db, $sql);
       $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -84,7 +87,7 @@ function register() {
           $errorMsg = "Sorry, that username is already in use.";
           header('Location: ./error.php?err='.$errorMsg);
         } else {
-          $query = mysqli_query($db, "INSERT INTO users (username, email, password, created) VALUES ('$user', '$email', '$pass' ,'$created')");
+          $query = mysqli_query($db, "INSERT INTO users (username, email, password, created, img_url) VALUES ('$user', '$email', '$pass' ,'$created', '$img_url_default')");
 
           if ($query) {
             header('Location: ./register_success.php');
@@ -130,7 +133,7 @@ function login() {
       $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 
       $hash = $row['password'];
-      
+
       if (password_verify($pass, $hash)) {
         //Success!
         $query = mysqli_query($db, "DELETE FROM user_sessions WHERE user_id='$user_id'");

@@ -56,14 +56,20 @@ html(lang='en')
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a.navbar-brand.appname(href='#') Next Episode
+            a(href='#')
+              .brand-lockup
+                .logo ne
+                .navbar-brand.appname Next Episode
           #nb-collapse.collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right
-              li
+              li.navbar-menu
                 a(href='#') TV Shows
               li.dropdown
-                a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') user placeholder
-                  span.caret
+                a.navbar-menu.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+                  .avatar-lockup
+                    .avatar
+                    | user placeholder
+                    span.caret
                 ul.dropdown-menu
                   li
                     a(href='#') TV Show Tracker
