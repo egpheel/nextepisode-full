@@ -60,14 +60,13 @@ login();
   <script type="text/javascript" src="js/moment.js"></script>
 
   <!-- my CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/layout.css">
 
   <title class="appname">Next Episode</title>
 </head>
 
-<body id="appBody">
-  <div class="container-fluid topPage">
+<body>
+  <div class="container-fluid cover">
     <div class="container real-vcenter">
       <form class="form-signin" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
@@ -81,7 +80,7 @@ login();
           </label>
         </div>
         <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">Sign in</button>
-        <p>Don't have an account? <a href="register.php">Sign up</a>.</p>
+        <p>Don't have an account? <a href="register">Sign up</a>.</p>
       </form>
       <div class="clearfix"></div>
     </div>

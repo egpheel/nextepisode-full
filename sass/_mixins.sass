@@ -1,0 +1,25 @@
+@mixin bradius($radius)
+  border-radius: $radius
+
+@mixin size($size)
+  width: $size
+  height: $size
+
+@mixin translateY($num)
+  -webkit-transform: translateY($num)
+  -ms-transform: translateY($num)
+  transform: translateY($num)
+
+@mixin flex
+  display: -webkit-box
+  display: -moz-box
+  display: -ms-flexbox
+  display: -webkit-flex
+  display: flex
+
+@mixin transition($args...)
+  -webkit-transition: $args
+  -moz-transition: $args
+  -ms-transition: $args
+  -o-transition: $args
+  transition: $args

@@ -1,0 +1,59 @@
+html,
+body
+  height: 100%
+
+body
+  font-family: $primary-font
+
+#footer
+  position: absolute
+  right: 0
+  bottom: 0
+  left: 0
+  padding: 1rem
+  text-align: center
+
+a
+  &:hover
+    text-decoration: none
+
+.cover
+  position: relative
+  background:
+    image: url('../img/bg-wall.jpg')
+    position: center center
+    repeat: no-repeat
+    size: cover
+  height: 100%
+  color: $text-primary-color
+  text-align: center
+
+  .tv-mockup
+    z-index: 0
+    background:
+      image: url('../img/tv-mockup.png')
+      position: center bottom
+      repeat: no-repeat
+    @include size(500px)
+    position: absolute
+    bottom: 0
+    right: 5%
+
+.vcenter
+  position: relative
+  top: 25%
+
+.real-vcenter
+  position: relative
+  top: 50%
+  @include translateY(-50%)
+
+.showResults
+  margin: 20px auto
+  padding: 20px 20px 30px 20px
+  background-color: $results-bg-color
+  color: $text-primary-color
+  border-radius: 3px
+
+.randomHead
+  margin: 30px

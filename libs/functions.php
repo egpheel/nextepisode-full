@@ -185,4 +185,58 @@ function generateToken() {
 
   return substr($key, 0, 5);
 }
+
+function checkLoggedInStatus() {
+  global $db;
+
+  if (isset($_SESSION['username'])) { //check if the user is logged in
+    $loggedin = true;
+    $user = $_SESSION['username'];
+
+    $sql = "SELECT img_url FROM users WHERE username='$user'";
+    $result = mysqli_query($db, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $avatar = $row['img_url'];
+
+  } else if (isset($_COOKIE[COOKIE_NAME])) { //check if the user is logged in
+    $loggedin = true;
+    $cookie = explode('|', $_COOKIE[COOKIE_NAME]);
+
+    $session_key = $cookie[0];
+    $token = $cookie[1];
+
+    $sql = "SELECT user_id FROM user_sessions WHERE session_key='$session_key'";
+    $result = mysqli_query($db, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $user_id_sessions = $row['user_id'];
+
+    $sql = "SELECT user_id FROM user_sessions WHERE token='$token'";
+    $result = mysqli_query($db, $sql);
+    $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $user_id_token = $row['user_id'];
+
+    if ($user_id_sessions === $user_id_token) {
+      $sql = "SELECT username FROM users WHERE id='$user_id_sessions'";
+      $result = mysqli_query($db, $sql);
+      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      $user = $row['username'];
+
+      $sql = "SELECT img_url FROM users WHERE id='$user_id_sessions'";
+      $result = mysqli_query($db, $sql);
+      $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+      $avatar = $row['img_url'];
+    }
+
+  } else { //if the user is not logged in, ...
+    $loggedin = false;
+    $user = '';
+    $avatar = '';
+  }
+
+  $status_and_avatar[0] = $user;
+  $status_and_avatar[1] = $loggedin;
+  $status_and_avatar[2] = $avatar;
+
+  return $status_and_avatar;
+}
 ?>

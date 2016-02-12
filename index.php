@@ -1,42 +1,10 @@
 <?php
 include_once "libs/db_config.php";
 include_once "libs/db_connect.php";
+include_once "libs/functions.php";
 
 session_start();
-if (isset($_SESSION['username'])) { //check if the user is logged in
-  $loggedin = true;
-  $user = $_SESSION['username'];
-
-  $sql = "SELECT img_url FROM users WHERE username='$user'";
-  $result = mysqli_query($db, $sql);
-  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-  $avatar = $row['img_url'];
-
-} else if (isset($_COOKIE[COOKIE_NAME])) { //check if the user is logged in
-  $loggedin = true;
-  $cookie = explode('|', $_COOKIE[COOKIE_NAME]);
-
-  $session_key = $cookie[0];
-  $token = $cookie[1];
-
-  $sql = "SELECT user_id FROM user_sessions WHERE session_key='$session_key'";
-  $result = mysqli_query($db, $sql);
-  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-  $user_id_sessions = $row['user_id'];
-
-  $sql = "SELECT username FROM users WHERE id='$user_id_sessions'";
-  $result = mysqli_query($db, $sql);
-  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-  $user = $row['username'];
-
-  $sql = "SELECT img_url FROM users WHERE id='$user_id_sessions'";
-  $result = mysqli_query($db, $sql);
-  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-  $avatar = $row['img_url'];
-
-} else { //if the user is not logged in, ...
-  $loggedin = false;
-}
+list($user, $loggedin, $avatar,) = checkLoggedInStatus();
 
 $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous page for error.php
 ?>
@@ -87,16 +55,17 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
         <div class="container">
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target="#nb-collapse" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a href="#">
+            <a href="/nextepisode-full">
               <div class="brand-lockup">
                 <div class="logo">ne</div>
                 <div class="navbar-brand appname">Next Episode</div>
+                <div class="version">alpha</div>
               </div>
             </a>
           </div>
           <div id="nb-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="navbar-menu"><a href="#">TV Shows</a></li>
+              <li class="navbar-menu"><a href="tv-shows">TV Shows</a></li>
               <?php if ($loggedin) { ?>
               <li class="dropdown"><a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle navbar-menu">
               <div class="avatar-lockup">
@@ -106,20 +75,21 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
               </div>
               </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">TV Show Tracker</a></li>
-                  <li><a href="#">My Favourites</a></li>
-                  <li><a href="#">My Account</a></li>
+                  <li><a href="user/tracker">TV Show Tracker</a></li>
+                  <li><a href="user/favourites">My Favourites</a></li>
+                  <li><a href="user/my-account">My Account</a></li>
                   <li role="separator" class="divider"></li>
-                  <li><a href="logout.php">Sign out</a></li>
+                  <li><a href="logout">Sign out</a></li>
                 </ul>
               </li>
               <?php } else { ?>
-              <li><a href="login.php" class="navbar-menu">Sign in</a></li>
+              <li><a href="login" class="navbar-menu">Sign in</a></li>
               <?php } ?>
             </ul>
           </div>
         </div>
       </div>
+      <div class="tv-mockup"></div>
       <div class="container vcenter">
         <div class="row">
           <div class="col-md-12">

@@ -48,16 +48,16 @@ header("refresh: 5; url=login.php");
   <script type="text/javascript" src="js/countdown.js"></script>
 
   <!-- my CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
 
   <title class="appname">Next Episode</title>
 </head>
 
-<body id="appBody">
-  <div class="container-fluid topPage">
+<body>
+  <div class="container-fluid cover">
     <div class="container real-vcenter">
       <h1>Registration complete!</h1>
-      <p>You're being redirected to the <a href="login.php">login</a> page in <span class="countdown"></span> seconds.</p>
+      <p>You're being redirected to the <a href="login">login</a> page in <span class="countdown"></span> seconds.</p>
     </div>
   </div>
   <script>countdown(5, "countdown");</script>

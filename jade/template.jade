@@ -56,30 +56,32 @@ html(lang='en')
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            a(href='#')
+            a(href='/nextepisode-full')
               .brand-lockup
                 .logo ne
                 .navbar-brand.appname Next Episode
+                .version alpha
           #nb-collapse.collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right
               li.navbar-menu
-                a(href='#') TV Shows
+                a(href='tv-shows') TV Shows
               li.dropdown
                 a.navbar-menu.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
                   .avatar-lockup
                     .avatar
-                    | user placeholder
+                    | username
                     span.caret
                 ul.dropdown-menu
                   li
-                    a(href='#') TV Show Tracker
+                    a(href='user/tracker') TV Show Tracker
                   li
-                    a(href='#') My Favourites
+                    a(href='user/favourites') My Favourites
                   li
-                    a(href='#') My Account
+                    a(href='user/my-account') My Account
                   li.divider(role='separator')
                   li
-                    a(href='logout.php') Sign out
+                    a(href='logout') Sign out
+      //.tv-mockup
                   
       block content   
     

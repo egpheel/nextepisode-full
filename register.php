@@ -55,14 +55,13 @@ register();
   <script type="text/javascript" src="js/validation.js"></script>
 
   <!-- my CSS -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/forms.css">
+  <link rel="stylesheet" href="css/layout.css">
 
   <title class="appname">Next Episode</title>
 </head>
 
-<body id="appBody">
-  <div class="container-fluid topPage">
+<body>
+  <div class="container-fluid cover">
     <div class="container real-vcenter">
       <form class="form-signin" method="post">
         <h2 class="form-signin-heading">Create an account</h2>
@@ -91,7 +90,7 @@ register();
           <span class="successsr sr-only">(success)</span>
         </div>
         <button id="regBtn" class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Create Account</button>
-        <p>Already have an account? <a href="login.php">Sign in</a>.</p>
+        <p>Already have an account? <a href="login">Sign in</a>.</p>
       </form>
       <div class="clearfix"></div>
     </div>

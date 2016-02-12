@@ -55,13 +55,13 @@ if (!$errorMsg) {
   <script type="text/javascript" src="js/moment.js"></script>
 
   <!-- my CSS -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/layout.css">
 
   <title class="appname">Next Episode</title>
 </head>
 
-<body id="appBody">
-  <div class="container-fluid topPage">
+<body>
+  <div class="container-fluid cover">
     <div class="container real-vcenter">
       <h1>There was a problem :(</h1>
       <p class="error">

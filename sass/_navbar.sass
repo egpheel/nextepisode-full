@@ -1,0 +1,78 @@
+.navbar-inverse
+  z-index: 2
+  background-color: $navbar-color
+  border: 0px
+    radius: 0
+  box-shadow: 0 1px 1px $shadow
+  padding: 20px 20px
+
+  .navbar-brand
+    margin-top: -7px
+    color: $logo-color
+    font:
+      family: $navbar-font
+      size: 22px
+
+  .navbar-nav
+    > li
+      > a
+        color: $text-primary-color
+    font:
+      family: $navbar-font
+      size: 12px
+
+  .navbar-toggle
+    border-color: $text-primary-color
+    &:hover, &:focus
+      background-color: $toggle-hover-color
+
+.navbar-menu
+  text-transform: uppercase
+
+.dropdown-menu
+  > li
+    > a
+      &:hover
+        background-color: $dropdown-hover-color
+
+.brand-lockup
+  position: relative
+  width: 220px
+  @include flex
+  justify-content: space-between
+  align-items: center
+  .logo
+    @include bradius(5px)
+    @include size(50px)
+    background-color: $logo-color
+    color: $navbar-color
+    font:
+      family: $primary-font
+      size: 40px
+  .version
+    position: absolute
+    top: 5%
+    right: 0
+    font:
+      family: $primary-font
+      size: 10px
+    color: transparentize($version-color, 0.2)
+
+  &:hover
+    > .logo
+      background-color: rgba($logo-color, 0.9)
+    .navbar-brand
+      color: rgba($logo-color, 0.9)
+    .version
+      color: $version-color
+
+.avatar-lockup
+  width: 100px
+  @include flex
+  justify-content: space-between
+  align-items: center
+  .avatar
+    @include bradius(50%)
+    @include size(20px)
+    background:
+      image: url('../img/avatar.svg')
