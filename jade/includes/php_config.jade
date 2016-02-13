@@ -1,0 +1,10 @@
+| <?php
+| include_once "libs/db_config.php";
+| include_once "libs/db_connect.php";
+| include_once "libs/functions.php";
+
+| session_start();
+| list($user, $loggedin, $avatar) = checkLoggedInStatus();
+
+| $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; 
+| ?>

@@ -1,14 +1,12 @@
+
 <?php
 include_once "libs/db_config.php";
 include_once "libs/db_connect.php";
 include_once "libs/functions.php";
-
 session_start();
 list($user, $loggedin, $avatar) = checkLoggedInStatus();
-
-$_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous page for error.php
-?>
-<!DOCTYPE html>
+$_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; 
+?><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -42,7 +40,6 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!--my JS-->
     <script type="text/javascript" src="js/appname.js"></script>
-    <script type="text/javascript" src="js/randominator.js"></script>
     <!--moment.js-->
     <script type="text/javascript" src="js/moment.js"></script>
     <!--my CSS-->
@@ -54,26 +51,18 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
       <div class="navbar navbar-inverse">
         <div class="container">
           <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target="#nb-collapse" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-            <a href="/nextepisode-full">
+            <button type="button" data-toggle="collapse" data-target="#nb-collapse" aria-expanded="false" class="navbar-toggle collapsed"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/nextepisode-full">
               <div class="brand-lockup">
                 <div class="logo">ne</div>
                 <div class="navbar-brand appname">Next Episode</div>
                 <div class="version">alpha</div>
-              </div>
-            </a>
+              </div></a>
           </div>
           <div id="nb-collapse" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="navbar-menu"><a href="tv-shows">TV Shows</a></li>
-              <?php if ($loggedin) { ?>
-              <li class="dropdown"><a data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle navbar-menu">
-              <div class="avatar-lockup">
-                <img class="avatar" src="<?php echo $avatar ?>">
-                <?php echo $user ?>
-                <span class="caret"></span>
-              </div>
-              </a>
+              <li class="navbar-menu"><a href="tv-shows">TV Shows</a></li><?php if ($loggedin) { ?>
+              <li class="dropdown"><a data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="navbar-menu dropdown-toggle">
+                  <div class="avatar-lockup"><img src="<?php echo $avatar ?>" class="avatar"><?php echo $user ?><span class="caret"></span></div></a>
                 <ul class="dropdown-menu">
                   <li><a href="tracker">TV Show Tracker</a></li>
                   <li><a href="favourites">My Favourites</a></li>
@@ -81,24 +70,20 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
                   <li role="separator" class="divider"></li>
                   <li><a href="logout">Sign out</a></li>
                 </ul>
-              </li>
-              <?php } else { ?>
-              <li><a href="login" class="navbar-menu">Sign in</a></li>
-              <?php } ?>
+              </li><?php } else { ?>
+              <li><a href="login" class="navbar-menu">Sign in</a></li><?php } ?>
             </ul>
           </div>
         </div>
       </div>
-      <div class="tv-mockup"></div>
       <div class="container vcenter">
         <div class="row">
           <div class="col-md-12">
-            <h1 class="randomHead">Track your favourite tv shows on <strong><span class="appname">Next Episode</span></strong></h1>
-            <button class="btn btn-primary btn-lg">Learn more</button>
+            <h1>TV Show Tracker</h1>
+            <p>This is where I'll put the TV Show Tracker.</p>
           </div>
         </div>
       </div>
     </div>
-    <script>randomHeader();</script>
   </body>
 </html>

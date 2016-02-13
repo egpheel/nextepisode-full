@@ -1,0 +1,38 @@
+.navbar.navbar-inverse
+  .container
+    .navbar-header
+      button(type='button', class='navbar-toggle collapsed', data-toggle='collapse', data-target='#nb-collapse', aria-expanded='false')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a(href='#{home}')
+        .brand-lockup
+          .logo ne
+          .navbar-brand.appname Next Episode
+          .version alpha
+    #nb-collapse.collapse.navbar-collapse
+      ul.nav.navbar-nav.navbar-right
+        li.navbar-menu
+          a(href='#{tvshows}') TV Shows
+        | <?php if ($loggedin) { ?>
+        li.dropdown
+          a.navbar-menu.dropdown-toggle(data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
+            .avatar-lockup
+              img.avatar(src!='<?php echo $avatar ?>')
+              | <?php echo $user ?>
+              span.caret
+          ul.dropdown-menu
+            li
+              a(href='#{tracker}') TV Show Tracker
+            li
+              a(href='#{favourites}') My Favourites
+            li
+              a(href='#{account}') My Account
+            li.divider(role='separator')
+            li
+              a(href='#{logout}') Sign out
+        | <?php } else { ?>
+        li
+          a.navbar-menu(href='#{login}') Sign in
+        | <?php } ?>
