@@ -1,10 +1,22 @@
-@media screen and (max-width: $break-small)
+@media screen and (max-width: $break-large)
   #nb-collapse
     margin: 15px 0 -15px 0
 
   .vcenter
     top: 20%
 
-@media screen and (max-width: $break-smaller)
+@media (max-width: $break-medium)
+  .why-register
+    .why-register-container
+      .why-register-return
+        display: inline-block
+        position: relative !important
+        left: 0 !important
+
+      .why-register-wrap
+        -webkit-flex-wrap: wrap
+        flex-wrap: wrap
+
+@media screen and (max-width: $break-small)
   .vcenter
     top: 5%

@@ -37,13 +37,13 @@
 
 .brand-lockup
   position: relative
-  width: 220px
-  @include flex
+  width: 210px
+  +flex
   justify-content: space-between
   align-items: center
   .logo
-    @include bradius(5px)
-    @include size(50px)
+    +bradius(5px)
+    +size(50px)
     background-color: $logo-color
     color: $navbar-color
     font:
@@ -68,11 +68,11 @@
 
 .avatar-lockup
   width: 100px
-  @include flex
+  +flex
   justify-content: space-between
   align-items: center
   .avatar
-    @include bradius(50%)
-    @include size(20px)
+    +bradius(50%)
+    +size(20px)
     background:
       image: url('../img/avatar.svg')

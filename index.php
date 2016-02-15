@@ -94,7 +94,7 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
         <div class="row">
           <div class="col-md-12">
             <h1 class="randomHead">Track your favourite tv shows on <strong><span class="appname">Next Episode</span></strong></h1>
-            <button class="btn btn-primary btn-lg">Learn more</button>
+            <button class="btn btn-primary btn-lg learnmore-btn">Get started</button>
           </div>
         </div>
       </div>

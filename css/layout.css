@@ -23,7 +23,6 @@ a:hover {
 }
 
 .cover {
-  position: relative;
   background-image: url("../img/bg-wall.jpg");
   background-position: center center;
   background-repeat: no-repeat;
@@ -43,6 +42,11 @@ a:hover {
   position: absolute;
   bottom: 0;
   right: 5%;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .vcenter {
@@ -68,6 +72,89 @@ a:hover {
 
 .randomHead {
   margin: 30px;
+}
+
+.features-wrap {
+  margin: 100px 30px;
+  background-color: white;
+  overflow-x: hidden;
+  text-align: center;
+}
+
+.features-wrap h1 {
+  margin-top: 0px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.features-wrap p {
+  margin-bottom: 30px;
+  text-align: justify;
+}
+
+.features-wrap .features-belt .features, .features-wrap .features-belt .why-register {
+  width: 50%;
+  float: left;
+}
+
+.features-wrap .features-belt {
+  width: 200%;
+  position: relative;
+  left: 0%;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.features-wrap .features-belt .features-container {
+  max-width: 960px;
+  margin: 0px auto;
+}
+
+.features-wrap .features-belt .why-register .why-register-container {
+  max-width: 650px;
+  margin: 0px auto;
+  position: relative;
+  display: none;
+}
+
+.features-wrap .features-belt .why-register .why-register-container .why-register-return {
+  width: 40px;
+  height: 40px;
+  opacity: 0.3;
+  cursor: pointer;
+  position: absolute;
+  left: 30px;
+}
+
+.features-wrap .features-belt .why-register .why-register-container .why-register-return:hover {
+  opacity: 0.5;
+}
+
+.features-wrap .features-belt .why-register .why-register-container .why-register-wrap {
+  margin: 0 auto 30px auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.features-wrap .features-belt .why-register .why-register-container .why-register-wrap .why-register-unit {
+  margin: 10px 0 30px 0;
+  width: 150px;
+  height: 150px;
+  background: #ccc;
+  border: 1px solid #000;
+}
+
+.searchSection {
+  background-color: #35324a;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .navbar-inverse {
@@ -113,7 +200,7 @@ a:hover {
 
 .brand-lockup {
   position: relative;
-  width: 220px;
+  width: 210px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -201,12 +288,24 @@ a:hover {
   margin-bottom: 25px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
   #nb-collapse {
     margin: 15px 0 -15px 0;
   }
   .vcenter {
     top: 20%;
+  }
+}
+
+@media (max-width: 550px) {
+  .why-register .why-register-container .why-register-return {
+    display: inline-block;
+    position: relative !important;
+    left: 0 !important;
+  }
+  .why-register .why-register-container .why-register-wrap {
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
   }
 }
 

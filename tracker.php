@@ -40,6 +40,8 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI'];
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!--my JS-->
     <script type="text/javascript" src="js/appname.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/loader.js"></script>
     <!--moment.js-->
     <script type="text/javascript" src="js/moment.js"></script>
     <!--my CSS-->
