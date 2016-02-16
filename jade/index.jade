@@ -28,8 +28,22 @@ block sections
           button.btn.btn-primary.btn-lg.whyregister-btn Sign up
 
   section.searchSection
-    h1 Hi
-  
+    .container.vcenter
+      h1 When's the next episode?
+      .col-md-4
+      .col-md-4
+        form(role='search')
+          .input-group
+            input#searchTxt.form-control(type='text', placeholder='Search TV Show', autocomplete='off', autofocus)
+            span.input-group-btn
+              button#searchBtn.btn.btn-default(type='submit')
+                span.glyphicon.glyphicon-search
+      .col-md-4
+      .clearfix
+      .col-md-2
+      #results.col-md-8
+      .col-md-2
+          
 block footer
   footer
     p Thanks to TVmaze and fanart.tv for their amazing APIs.
