@@ -1,50 +1,23 @@
 extends template
 
 block content
-  .tv-mockup
-  .container.vcenter
-    .row
-      .col-md-12
-        h1.randomHead Track your favourite tv shows on <strong><span class="appname">Next Episode</span></strong>
-        button.btn.btn-primary.btn-lg.learnmore-btn Learn more
-
-block sections
-  section.features-wrap
-    .features-belt
-      .features
-        .features-container
-          h1 Never miss the next episode again.
-          p  <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong> Alias quia tempora perferendis suscipit, veritatis officia, reiciendis in deserunt minus dolores itaque perspiciatis laborum quod magnam eaque. Aperiam quibusdam, quos dolorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores nobis eius dolores, nostrum facere nam veritatis molestias tenetur non vero porro, sunt magni tempore odio, eos ad! Minus, eius, rem? Lorem ipsum dolor sit amet, consectetur adipisicing elit. A porro culpa voluptates assumenda in nisi minima laboriosam consequuntur voluptas consequatur, at dolores vitae temporibus autem explicabo blanditiis cumque recusandae itaque.
-          button.btn.btn-lg.register-btn Why register?
-      .why-register
-        .why-register-container
-          .why-register-return
-            //include ../img/leftarrow.svg
-            img(src='img/return.png', alt='Return')
-          h1 Why register?
-          .why-register-wrap
-            - for (var i = 0; i < 3; i++)
-              .why-register-unit
-          button.btn.btn-primary.btn-lg.whyregister-btn Sign up
-
-  section.searchSection
-    .container.vcenter
-      h1 When's the next episode?
-      .col-md-4
-      .col-md-4
-        form(role='search')
-          .input-group
-            input#searchTxt.form-control(type='text', placeholder='Search TV Show', autocomplete='off', autofocus)
-            span.input-group-btn
-              button#searchBtn.btn.btn-default(type='submit')
-                span.glyphicon.glyphicon-search
-      .col-md-4
-      .clearfix
-      .col-md-2
-      #results.col-md-8
-      .col-md-2
+  .container.vcenter.searchSection
+    h1 When's the next episode?
+    .col-md-4
+    .col-md-4
+      form(role='search')
+        .input-group
+          input#searchTxt.form-control(type='text', placeholder='Search TV Show', autocomplete='off', autofocus)
+          span.input-group-btn
+            button#searchBtn.btn.btn-default(type='submit')
+              span.glyphicon.glyphicon-search
+    .col-md-4
+    .clearfix
+    .col-md-2
+    #results.col-md-8
+    .col-md-2
           
 block footer
   footer
-    p Thanks to TVmaze and fanart.tv for their amazing APIs.
+    p Thanks to <a href="http://www.tvmaze.com/" target="_blank">TVmaze</a> and <a href="https://fanart.tv/" target="_blank">fanart.tv</a> for their amazing APIs.
     

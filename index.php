@@ -42,7 +42,8 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <!--my JS-->
     <script type="text/javascript" src="js/appname.js"></script>
-    <script type="text/javascript" src="js/randominator.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/loader.js"></script>
     <!--moment.js-->
     <script type="text/javascript" src="js/moment.js"></script>
     <!--my CSS-->
@@ -89,16 +90,26 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
           </div>
         </div>
       </div>
-      <div class="tv-mockup"></div>
-      <div class="container vcenter">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="randomHead">Track your favourite tv shows on <strong><span class="appname">Next Episode</span></strong></h1>
-            <button class="btn btn-primary btn-lg learnmore-btn">Get started</button>
-          </div>
+      <div class="container vcenter searchSection">
+        <h1>When's the next episode?</h1>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <form role="search">
+            <div class="input-group">
+              <input id="searchTxt" type="text" placeholder="Search TV Show" autocomplete="off" autofocus class="form-control"><span class="input-group-btn">
+                <button id="searchBtn" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button></span>
+            </div>
+          </form>
         </div>
+        <div class="col-md-4"></div>
+        <div class="clearfix"></div>
+        <div class="col-md-2"></div>
+        <div id="results" class="col-md-8"></div>
+        <div class="col-md-2"></div>
       </div>
     </div>
-    <script>randomHeader();</script>
+    <footer>
+      <p>Thanks to <a href="http://www.tvmaze.com/" target="_blank">TVmaze</a> and <a href="https://fanart.tv/" target="_blank">fanart.tv</a> for their amazing APIs.</p>
+    </footer>
   </body>
 </html>

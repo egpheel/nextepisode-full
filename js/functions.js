@@ -1,14 +1,3 @@
-function featureBelt() {
-  $('.register-btn').click(function() {
-    $('.features-belt').css('left', '-100%');
-    $('.why-register-container').show(300);
-  });
-  $('.why-register-return').click(function() {
-    $('.features-belt').css('left', '0%');
-    $('.why-register-container').hide(800);
-  });
-}
-
 var fanartAPIkey = 'a1762923cfc36071f53e75b4b76cbda6';
 var APIurl = 'http://webservice.fanart.tv/v3';
 
@@ -20,19 +9,23 @@ function getFanart(thetvdbID) {
     var randomBg = Math.floor(Math.random() * bgNum);
     var bgfanart = data.showbackground[randomBg].url;
 
-    $('.searchSection').fadeTo('slow', 0.1, function () {
-      $(this).css('background-image', 'url(' + bgfanart + ')');
-      $(this).css('background-size', 'cover');
-      $(this).css('background-position', 'center top');
-      $(this).css('background-repeat', 'no-repeat');
-    }).fadeTo('slow', 1);
+    $('<img/>').attr('src', bgfanart).load(function() {
+      $(this).remove();
+      $('.cover').css('background-image', 'url(' + bgfanart + ')');
+      $('.cover').css('background-size', 'cover');
+      $('.cover').css('background-position', 'center top');
+      $('.cover').css('background-repeat', 'no-repeat');
+    });
   });
 };
 
 function showNextAir(showName) {
+  $("footer").addClass("hasBg");
+
   $("#results").fadeOut('slow');
   $("#results").empty();
   $("#results").fadeIn('slow');
+
   $.getJSON('http://api.tvmaze.com/singlesearch/shows?q=' + showName, function (data) {
     var tvshowname = data.name;
     var tvshowurl = data.url;
