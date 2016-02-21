@@ -76,7 +76,6 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI']; //make this the previous pag
               </div>
               </a>
                 <ul class="dropdown-menu">
-                  <li><a href="tracker">TV Show Tracker</a></li>
                   <li><a href="favourites">My Favourites</a></li>
                   <li><a href="account">My Account</a></li>
                   <li role="separator" class="divider"></li>

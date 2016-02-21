@@ -66,7 +66,6 @@ $_SESSION['origin_page'] = $_SERVER['REQUEST_URI'];
               <li class="dropdown"><a data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" class="navbar-menu dropdown-toggle">
                   <div class="avatar-lockup"><img src="<?php echo $avatar ?>" class="avatar"><?php echo $user ?><span class="caret"></span></div></a>
                 <ul class="dropdown-menu">
-                  <li><a href="tracker">TV Show Tracker</a></li>
                   <li><a href="favourites">My Favourites</a></li>
                   <li><a href="account">My Account</a></li>
                   <li role="separator" class="divider"></li>
